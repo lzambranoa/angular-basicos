@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Personaje } from '../interfaces/dbz.interface';
 
-interface Personaje {
-  nombre: string;
-  poder: number;
-}
+
 
 @Component({
   selector: 'app-main-page',
@@ -29,23 +27,15 @@ export class MainPageComponent implements OnInit {
   ];
 
   nuevo: Personaje = {
-    nombre: '',
-    poder: 0
-  }
-
-  agregar(){
-    if(this.nuevo.nombre.trim().length === 0){
-      return;
+      nombre: "Maestro Rochi",
+      poder: 1000
     }
 
-    console.log(this.nuevo)
-    
-    this.personajes.push(this.nuevo);
-    this.nuevo = {
-      nombre: '',
-      poder: 0
+    agregarNuevoPersonaje(argumento: Personaje){
+      this.personajes.push(argumento);
     }
-    
-  }
+  
+
+ 
 
 }
